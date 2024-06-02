@@ -1,0 +1,17 @@
+const int ledPin = 9;
+const int batteryPin = A0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(batteryPin, INPUT);
+}
+
+void loop() {
+  int batteryLevel = analogRead(batteryPin);
+  if (batteryLevel > 512) { // Заряд батареи больше половины
+    digitalWrite(ledPin, HIGH); // Включаем светодиод
+  } else {
+    digitalWrite(ledPin, LOW); // Выключаем светодиод
+  }
+  delay(1000); // Проверяем каждые секунду
+}
